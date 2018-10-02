@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import '../App.css';
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import AppBar from '@material-ui/core/AppBar';
+import TextField from '@material-ui/core/TextField';
 
 
 class Form extends Component {
  constructor(props) {
      super(props);
-     //this.handleSubmit = this.handleSubmit.bind(this);
+     this.state = {
+         value:0
+     }
  }
 
 handleSubmit(event){
@@ -25,35 +31,38 @@ handleSubmit(event){
     alert('done something')
     event.preventDefault()
 }
+    
+handleTabChange(event,index) {
+    console.log(index)
+    this.setState({value: index})
+}
 
   
 
   render() {
       
     return (
-       <div>
-         <Button variant="contained" color="primary">
-      Hello World
-    </Button>
+       <div className="formHeader">
+        <AppBar  position="static">
+         <Tabs  centered value={this.state.value} onChange={this.handleTabChange.bind(this)}>
+            <Tab label="Sign In" />
+            <Tab label="Sign Up" />
+          </Tabs>
+        </AppBar>
        
-        <div className="col-12 signUp">
-        <p className="col-2 App-intro">Sign In</p>
-        <form className="col-8" onSubmit={this.handleSubmit}>
-  <div className="form-row formRow">
-    <label className="col-4 col-form-label" >Email address</label>
-    <input type="email" className="form-control col-4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
+     <TextField
+className="textField"
+        label="Email"
+        id="margin-none"
         
-  </div>
-  <div className="form-row formRow">
-    <label className="col-4 col-form-label" >Password</label>
-    <input type="password" className="form-control col-4" id="exampleInputPassword1" placeholder="Password"></input>
+      ></TextField>
+      
+      <TextField
+        className="textField"
+       label="Password"
+        id="margin-none"
         
-  </div>
-  <div>
-  <button  type="submit" className="btn btn-primary col-2 submitButton">Sign In</button>
- </div>
-</form>
-        </div>
+      ></TextField>
         </div>
     );
   }
