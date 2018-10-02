@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import Button from '@material-ui/core/Button'
 
 
 class Form extends Component {
@@ -30,6 +31,11 @@ handleSubmit(event){
   render() {
       
     return (
+       <div>
+         <Button variant="contained" color="primary">
+      Hello World
+    </Button>
+       
         <div className="col-12 signUp">
         <p className="col-2 App-intro">Sign In</p>
         <form className="col-8" onSubmit={this.handleSubmit}>
@@ -47,6 +53,7 @@ handleSubmit(event){
   <button  type="submit" className="btn btn-primary col-2 submitButton">Sign In</button>
  </div>
 </form>
+        </div>
         </div>
     );
   }
