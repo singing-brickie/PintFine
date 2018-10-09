@@ -46,13 +46,23 @@
     padding-right:50% !important;
 }
 
-.submitButton {
-   float: left;
-    margin-left: 30%;
+.submitBtn {
+    margin-top: 10% !important;
 }
 
 .signUp {
     margin-left: 25%
+}
+
+.signUpField {
+    padding-right:10% !important;
+    padding-top:10% !important;
+    width:40% !important;
+}
+
+.signUpFieldLast {               
+    padding-top:10% !important;
+    width:40% !important;
 }
 
 @keyframes App-logo-spin {
