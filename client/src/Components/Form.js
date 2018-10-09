@@ -4,14 +4,16 @@ import Button from '@material-ui/core/Button';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
-import TextField from '@material-ui/core/TextField';
+import SignIn from './SignIn.js';
+import SignUp from './SignUp.js';
 
 
 class Form extends Component {
  constructor(props) {
      super(props);
      this.state = {
-         value:0
+         value:0,
+         submitText: 'Sign In'
      }
  }
 
@@ -33,8 +35,8 @@ handleSubmit(event){
 }
     
 handleTabChange(event,index) {
-    console.log(index)
-    this.setState({value: index})
+    let btnText = index === 0 ? 'Sign In' : 'Sign Up';
+    this.setState({value: index,submitText: btnText});
 }
 
   
@@ -49,20 +51,9 @@ handleTabChange(event,index) {
             <Tab label="Sign Up" />
           </Tabs>
         </AppBar>
-       
-     <TextField
-className="textField"
-        label="Email"
-        id="margin-none"
-        
-      ></TextField>
-      
-      <TextField
-        className="textField"
-       label="Password"
-        id="margin-none"
-        
-      ></TextField>
+      {this.state.value === 0 && <SignIn></SignIn>}
+      {this.state.value === 1 && <SignUp></SignUp>}
+        <Button variant="contained" color="primary" className="submitBtn">{this.state.submitText}</Button>
         </div>
     );
   }
